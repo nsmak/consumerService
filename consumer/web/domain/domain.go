@@ -3,11 +3,11 @@ package domain
 import (
 	"time"
 
-	"consumerService/consumer"
-	"consumerService/consumer/models"
-	"consumerService/consumer/web/auth"
-	"consumerService/consumer/web/auth/token"
-	"consumerService/consumer/web/store"
+	"github.com/nsmak/consumerService/consumer"
+	"github.com/nsmak/consumerService/consumer/models"
+	"github.com/nsmak/consumerService/consumer/web/auth"
+	"github.com/nsmak/consumerService/consumer/web/auth/token"
+	"github.com/nsmak/consumerService/consumer/web/store"
 
 	"github.com/dgrijalva/jwt-go"
 )

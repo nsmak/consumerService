@@ -1,4 +1,4 @@
-module consumerService
+module github.com/nsmak/consumerService
 
 go 1.14
 

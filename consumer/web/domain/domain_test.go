@@ -4,6 +4,8 @@ import (
 	"errors"
 	"testing"
 
+	"github.com/nsmak/consumerService/consumer/models"
+	"github.com/nsmak/consumerService/consumer/web/auth"
 	"github.com/stretchr/testify/require"
 )
 

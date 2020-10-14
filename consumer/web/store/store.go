@@ -1,6 +1,6 @@
 package store
 
-import "consumerService/consumer/models"
+import "github.com/nsmak/consumerService/consumer/models"
 
 // DataStore - interface of data storage service
 type DataStore interface {

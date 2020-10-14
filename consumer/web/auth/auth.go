@@ -3,9 +3,9 @@ package auth
 import (
 	"errors"
 
-	"consumerService/consumer"
-	"consumerService/consumer/models"
-	"consumerService/consumer/web/auth/token"
+	"github.com/nsmak/consumerService/consumer"
+	"github.com/nsmak/consumerService/consumer/models"
+	"github.com/nsmak/consumerService/consumer/web/auth/token"
 
 	"github.com/dgrijalva/jwt-go"
 )
