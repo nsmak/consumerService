@@ -83,14 +83,17 @@ func (s *Service) Consumer(email string) (models.Consumer, error) {
 func (s *Service) AuthenticateConsumer(form models.AuthForm) (tokenString string, err error) {
 	err = form.Validate()
 	if err != nil {
+		err = &domainError{IsUserError: true, Message: "can't authenticate user", Err: err}
 		return
 	}
 	c, err := s.store.Consumer(form.Email)
 	if err != nil {
+		err = &domainError{IsUserError: false, Message: "can't get user", Err: err}
 		return
 	}
 	err = s.auth.MatchPasswordHash(c.PassHash, form)
 	if err != nil {
+		err = &domainError{IsUserError: true, Message: "can't authenticate user", Err: err}
 		return
 	}
 	claims := token.Claims{
@@ -103,6 +106,7 @@ func (s *Service) AuthenticateConsumer(form models.AuthForm) (tokenString string
 		},
 	}
 	tokenString, err = s.auth.CreateJWT(claims)
+
 	return
 }
 

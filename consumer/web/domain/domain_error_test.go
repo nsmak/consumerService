@@ -26,4 +26,10 @@ func TestDomainError_Error(t *testing.T) {
 		require.Equal(t, "err --> error", err.Error())
 		require.Equal(t, err.IsUserError, err.UserError())
 	})
+
+	t.Run("when dependent error is with another IsUserError flag", func(t *testing.T) {
+		err := &domainError{IsUserError: true, Message: "err", Err: &domainError{IsUserError: false, Message: "error"}}
+		require.Equal(t, "err --> error", err.Error())
+		require.False(t, err.UserError())
+	})
 }
